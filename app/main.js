@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
     .insert({ data })
     .then((_) => res.send("visitado em " + data))
     .catch((e) => res.status(500).send(e));
+  console.log(data);
 });
 
 app.get("/visitas", async (req, res) => {
@@ -23,5 +24,5 @@ app.get("/visitas", async (req, res) => {
 
 knex.migrate.latest().then((_) => {
   app.listen(3000);
-  console.log("running...");
+  console.log("http://0.0.0.0:3000");
 });
